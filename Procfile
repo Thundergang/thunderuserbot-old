@@ -1,0 +1,1 @@
+thunderbot: python -m thunderbot
