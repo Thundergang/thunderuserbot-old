@@ -1,0 +1,74 @@
+import os
+import subprocess
+
+from thunderbot.utils import admin_cmd
+
+from thunderbot import CMD_HELP
+
+
+@thunderbot.on(admin_cmd(pattern=r"getc"))
+@thunderbot.on(sudo_cmd(pattern=r"getc", allow_sudo=True))
+async def get_media(event):
+    if event.fwd_from:
+        return
+    dir = "./temp/"
+    try:
+        os.makedirs("./temp/")
+    except BaseException:
+        pass
+    channel_username = event.text
+    limit = channel_username[6:9]
+    print(limit)
+    channel_username = channel_username[11:]
+    print(channel_username)
+    await eor(event, "Downloading Media From this Channel.")
+    msgs = await borg.get_messages(channel_username, limit=int(limit))
+    with open("log.txt", "w") as f:
+        f.write(str(msgs))
+    for msg in msgs:
+        if msg.media is not None:
+            await borg.download_media(msg, dir)
+    ps = subprocess.Popen(("ls", "temp"), stdout=subprocess.PIPE)
+    output = subprocess.check_output(("wc", "-l"), stdin=ps.stdout)
+    ps.wait()
+    output = str(output)
+    output = output.replace("b'", "")
+    output = output.replace("\n'", "")
+    await eor(event, "Downloaded " + output + " files.")
+
+
+@thunderbot.on(admin_cmd(pattern=r"geta"))
+async def get_media(event):
+    if event.fwd_from:
+        return
+    dir = "./temp/"
+    try:
+        os.makedirs("./temp/")
+    except BaseException:
+        pass
+    channel_username = event.text
+    channel_username = channel_username[7:]
+
+    print(channel_username)
+    await eor(event, "Downloading All Media From this Channel.")
+    msgs = await borg.get_messages(channel_username, limit=3000)
+    with open("log.txt", "w") as f:
+        f.write(str(msgs))
+    for msg in msgs:
+        if msg.media is not None:
+            await borg.download_media(msg, dir)
+    ps = subprocess.Popen(("ls", "temp"), stdout=subprocess.PIPE)
+    output = subprocess.check_output(("wc", "-l"), stdin=ps.stdout)
+    ps.wait()
+    output = str(output)
+    output = output.replace("b'", "")
+    output = output.replace("\n'", "")
+    await eor(event, "Downloaded " + output + " files.")
+
+
+CMD_HELP.update(
+    {
+        "channel_alldownload": ".getc\nUse - Download all media from channel.\
+        \n\n.geta \nUse - Download all audio from channel."
+    }
+)
