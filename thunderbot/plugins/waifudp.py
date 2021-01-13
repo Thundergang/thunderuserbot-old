@@ -15,6 +15,19 @@ COLLECTION_STRING = [
     "anime-samurai-girl-wallpaper",
     "4k-anime-wallpapers",
     "2560-x-1440-wallpaper-anime",
+    "anime-cat-girl-wallpaper";
+    "kawaii-anime-wallpaper";
+    "anime-live-wallpapers-for-desktop";
+    "all-anime-characters-hd-wallpaper";
+    "cute-anime-wallpaper-1920x1080";
+    "anime-yuri-wallpaper";
+    "cute-anime-chibi-wallpapers";
+    "cute-anime-background";
+    "all-anime-wallpaper";
+    "anime-girls-wallpapers";
+    "anime-maid-wallpaper";
+    "cute-anime-girls-hd-wallpaper";
+    "sweet-couple-anime-wallpaper";
 ]
 
 
