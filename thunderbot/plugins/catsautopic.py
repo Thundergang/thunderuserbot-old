@@ -46,7 +46,7 @@ async def meowthundergang():
     urllib.request.urlretrieve(fy, "donottouch.jpg")
 
 
-@thunderbot.on(admin_cmd(pattern="catpfp ?(.*)"))
+@thunderbot.on(admin_cmd(pattern="meowpfp ?(.*)"))
 async def main(event):
 
     await event.edit(
@@ -67,5 +67,5 @@ async def main(event):
 
 
 CMD_HELP.update(
-    {"catsautopic": "➟ `.catpfp`\nSelects Randomly A Cute Cat Pic And Sets As Your Profile Picture.."}
+    {"catsautopic": "➟ `.meowpfp`\nSelects Randomly A Cute Cat Pic And Sets As Your Profile Picture.."}
 )
