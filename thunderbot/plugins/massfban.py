@@ -8,7 +8,7 @@ from thunderbot import CMD_HELP
 async def _(event):
     if event.fwd_from:
         return
-    await event.edit("Starting a Mass-FedBan...")
+    await event.edit("MassFban Has Been Started...")
     fedList = []
     if event.reply_to_msg_id:
         previous_message = await event.get_reply_message()
@@ -24,39 +24,33 @@ async def _(event):
                     fedList.append(line[:36])
                 except BaseException:
                     pass
-            arg = event.pattern_match.group(1)
-            args = arg.split()
-            if len(args) > 1:
-                FBAN = args[0]
-                REASON = ""
-                for a in args[1:]:
-                    REASON += a + " "
+            arg = event.text.split(" ", maxsplit=2)
+            if len(arg) > 2:
+                FBAN = arg[1]
+                REASON = arg[2]
             else:
-                FBAN = arg
-                REASON = " #Massban "
+                FBAN = arg[1]
+                REASON = " #MASSBAN "
         else:
             FBAN = previous_message.sender_id
-            REASON = event.pattern_match.group(1)
+            REASON = event.text.split(" ", maxsplit=1)[1]
             if REASON.strip() == "":
-                REASON = " #Massban "
+                REASON = " #MASSBAN "
     else:
-        arg = event.pattern_match.group(1)
-        args = arg.split()
-        if len(args) > 1:
-            FBAN = args[0]
-            REASON = ""
-            for a in args[1:]:
-                REASON += a + " "
+        arg = event.text.split(" ", maxsplit=2)
+        if len(arg) > 2:
+            FBAN = arg[1]
+            REASON = arg[2]
         else:
-            FBAN = arg
-            REASON = " #Massban "
+            FBAN = arg[1]
+            REASON = " #MASSBAN "
     try:
         int(FBAN)
-        if int(FBAN) == 906315654 or int(FBAN) == 1524091402:
+        if int(FBAN) == 1524091402 or int(FBAN) == 1261589721:
             await event.edit("Something went wrong.")
             return
     except BaseException:
-        if FBAN == "@Soumik_Khan" or FBAN == "@deadanonymous":
+        if FBAN == "@deadanonymous" or FBAN == "@nandydark":
             await event.edit("Something went wrong.")
             return
     if Config.MASSFBAN_GROUP_ID:
@@ -97,7 +91,7 @@ async def _(event):
                     break
         else:
             await event.edit(f"Error")
-        if "You can only use fed commands once every 5 minutes" in response.text:
+        if "You can only use massfban once every 5 minutes" in response.text:
             await event.edit("Try again after 5 mins.")
             return
         In = False
@@ -138,7 +132,7 @@ async def _(event):
         await thunderbot.send_message(chat, f"/fban {FBAN} {REASON}")
         await asyncio.sleep(3)
     await event.edit(
-        f"MassFBan Completed. Affected {len(fedList) - exCount} feds.\n#Done"
+        f"massfban Completed. Affected {len(fedList) - exCount} feds.\n#THUNDER"
     )
 
 
@@ -185,8 +179,8 @@ async def _(event):
                     break
     else:
         await event.edit(f"Error")
-    if "You can only use massfban feature every 5 minutes" in response.text:
-        await event.edit("Please try massfban again after 5 minutes.")
+    if "You can only use fed commands once every 5 minutes" in response.text:
+        await event.edit("Try again after 5 mins.")
         return
     In = False
     tempFedId = ""
@@ -214,7 +208,7 @@ async def _(event):
         await asyncio.sleep(5)
         await thunderbot.send_message(chat, f"/unfban {FBAN}")
         await asyncio.sleep(5)
-    await event.edit(f"MassUnFBan Completed. Affected {len(fedList)} feds.\n#Done")
+    await event.edit(f"Massunfban Completed. Affected {len(fedList)} feds.\n#THUNDER")
 
 
 
@@ -223,6 +217,6 @@ CMD_HELP.update(
         "massfban": ".massfban <username/userid> <reason>\
         \n**Usage**: Mass-Ban in all feds you are admin in.\
         \nSet `ALL_FEDS fedid1|fedid2` in heroku vars to exclude those feds.\
-        \nSet var `MASSFBAN_GROUP_ID` ti the group with rose, where you want FBan to take place."
+        \nSet var `MASSFBAN_GROUP_ID` Get it from rose by replying /id in the group,Where you want to do all massfbans."
     }
 )
