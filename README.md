@@ -35,6 +35,13 @@ Best UserBot To Manage Your Telegram Account
 
 [![Run on Repl.it](https://repl.it/badge/github/Thundergang/thunderuserbot)](https://repl.it/@deadanonymous/Thundergang#main.py)
 
+## Thunderuserbot's Gitbook By Thundergang™
+
+<img src="https://telegra.ph/file/16df41fe13ab10d5b7b1b.png" alt="">
+
+Go and read it from [here](https://thundergang.gitbook.io/thunderuserbot/)
+
+
 ## Contributors
 [Go here](https://github.com/Thundergang/thunderuserbot/graphs/contributors)
 
