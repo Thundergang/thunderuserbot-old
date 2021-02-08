@@ -49,4 +49,10 @@ async def img_sampler(event):
     await event.delete()
 
 
-CMD_HELP.update({"img": ".img <query>\nUse - Search images."})
+CMD_HELP.update(
+    {
+        "img": "**img**\
+\n\n**Syntax : **`.img <your query>`\
+\n**Usage :** Sends images."
+    }
+)
