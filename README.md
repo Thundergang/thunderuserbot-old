@@ -57,7 +57,7 @@ virtualenv -p /usr/bin/python3 venv
 . ./venv/bin/activate
 pip install -r requirements.txt
 # <Create local_config.py with variables as given below>
-python3 -m userbot
+python3 -m thunderuserbot
 ```
 
 An example `local_config.py` file could be:
@@ -89,3 +89,7 @@ class Development(Var):
 
  [This program is licensed under GNU Affero General Public License v3.0.](https://github.com/Thundergang/thunderuserbot/blob/main/LICENSE)
 You cannot use this without the permission of It's Owner or Thundergang. If we find anyone breaking the rules and not following the licence then we can take any strict actions against them.
+
+# WALL OF SHAME
+
+Wall of Shame current some winners are [here](https://t.me/thunderuserbot/53)
