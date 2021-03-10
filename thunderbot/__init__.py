@@ -109,7 +109,7 @@ if bool(ENV):
     AUTOPIC_TEXT = os.environ.get(
         "AUTOPIC_TEXT",
         "Life Is too Short.\n And so is your TG account.")
-    AUTO_PIC_FONT = os.environ.get("AUTOPIC_FONT", "DejaVuSans.ttf")
+    AUTO_PIC_FONT = os.environ.get("AUTOPIC_FONT", "thundergangfont.ttf")
     AUTOPIC_FONT_COLOUR = os.environ.get("AUTOPIC_FONT_COLOUR", None)
 
     CMD_HNDLR = os.environ.get("CMD_HNDLR", r"\.")
