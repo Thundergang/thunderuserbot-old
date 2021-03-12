@@ -28,7 +28,7 @@ Best UserBot To Manage Your Telegram Account
 
 ## Deploy Thunderuserbot To Heroku
 
-[![Deploy To Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Thundergang/thunderuserbot)
+[![Deploy To Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Thundergang/thunderuserbotheroku)
 
 
 ## Telegram String-Session Generator By Thundergang™
