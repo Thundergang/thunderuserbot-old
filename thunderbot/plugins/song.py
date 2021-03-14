@@ -49,7 +49,7 @@ async def download_video(thundrgang):
                 {
                     "key": "FFmpegExtractAudio",
                     "preferredcodec": "mp3",
-                    "preferredquality": "320k",
+                    "preferredquality": "320",
                 }
             ],
             "outtmpl": "%(id)s.mp3",
