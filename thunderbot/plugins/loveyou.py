@@ -31,7 +31,7 @@ async def _(event):
         animation_chars = [
         
             "`I want to tell you something🙂🙂`",
-            "`Wait i am Shying😅",
+            "`Wait i am Shying😅`",
             "`I `",
             "`I H `",
             "`I HA `",    
