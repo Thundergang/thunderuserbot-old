@@ -73,7 +73,7 @@ if LOAD_MYBOT == "True":
     print("TGBot set up completely!")
 
 print("TGBot set up - Level - Basic")
-print("thunderuserbot has been fully deployed! Go To @thunderuserbot")
+print("thunderuserbot has been fully deployed! Please visit @thunderuserbot on telegram")
 bot.loop.run_until_complete(startup_log_all_done())
 
 if len(argv) not in (1, 3, 4):
