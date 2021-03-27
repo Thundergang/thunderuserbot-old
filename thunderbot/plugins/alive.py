@@ -66,7 +66,7 @@ async def ifiamalive(alive):
         thundrgang = f"**⚡️This is ThunderUserbot⚡️**\n\n"
         thundrgang += f"`{CUSTOM_ALIVE}`\n\n"
         thundrgang += (
-            f"{alivemoji} **Telethon version**: `1.17`\n{alivemoji} **Python**: `3.8.3`\n"
+            f"{alivemoji} **Telethon version**: `1.17`\n{alivemoji} **Python**: `3.9.2`\n"
         )
         thundrgang += f"{alivemoji} **Thunderuserbot Version**: `{thunderversion}`\n"
         thundrgang += f"{alivemoji} **More Info**: @thunderuserbot\n"
