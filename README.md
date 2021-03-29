@@ -8,7 +8,6 @@
 
 Best UserBot To Manage Your Telegram Account 
 
-<img src="https://telegra.ph/file/ea5bd06ab0e8f13ea0261.jpg" >
 
 ## Stable, Fast , Safe, Better And Most Trusted
 
@@ -24,7 +23,8 @@ Best UserBot To Manage Your Telegram Account
 ## ----------------- Don't Forget To Give A Star ⭐ -----------------
 
 ## IF YOU WILL FORK THEN YOU WOULDN'T GET NEW UPDATES !!
-
+## Tutorials
+- Tutorial for how to signup free on heroku for thunderuserbot can be found [here](https://youtu.be/x1U0a0_sBe8)
 
 ## Deploy Thunderuserbot To Heroku
 
