@@ -7,13 +7,14 @@ from selenium.webdriver.support.ui import Select
 from selenium.webdriver.chrome.options import Options
 from requests import get
 
-from thunderbot import CMD_HELP, CHROME_BIN, CHROME_DRIVER
+from thunderbot import CMD_HELP
 from thunderbot.utils import admin_cmd
 
 CARBONLANG = "auto"
 
 LANG = "en"
-
+THECHROME_BIN = "/app/.apt/usr/bin/google-chrome"
+THECHROME_DRIVER = "/app/.chromedriver/bin/chromedriver"
 
 @thunderbot.on(admin_cmd(pattern="carbon"))
 @thunderbot.on(sudo_cmd(pattern="carbon", allow_sudo=True))
@@ -50,7 +51,7 @@ async def carbon_api(e):
 
    chrome_options.add_argument("--headless")
 
-   chrome_options.binary_location = CHROME_BIN
+   chrome_options.binary_location = THECHROME_BIN
 
    chrome_options.add_argument("--window-size=1920x1080")
 
@@ -64,7 +65,7 @@ async def carbon_api(e):
 
    chrome_options.add_experimental_option('prefs', prefs)
 
-   driver = webdriver.Chrome(executable_path=CHROME_DRIVER, options=chrome_options)
+   driver = webdriver.Chrome(executable_path=THECHROME_DRIVER, options=chrome_options)
 
    driver.get(url)
 
