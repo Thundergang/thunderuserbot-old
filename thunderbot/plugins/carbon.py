@@ -7,7 +7,7 @@ from selenium.webdriver.support.ui import Select
 from selenium.webdriver.chrome.options import Options
 from requests import get
 
-from thunderbot import CMD_HELP,CHROME_BIN, CHROME_DRIVER
+from thunderbot import CMD_HELP, CHROME_BIN, CHROME_DRIVER
 from thunderbot.utils import admin_cmd
 
 CARBONLANG = "auto"
