@@ -42,3 +42,8 @@ async def _(event):
             await asyncio.sleep(animation_interval)
 
             await event.edit(animation_chars[i % 100])
+CMD_HELP.update(
+    {
+        "thunder": "➟ `.thunder`\nUse - Feel The Thunder"
+    }
+)
