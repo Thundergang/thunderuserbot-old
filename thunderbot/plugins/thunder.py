@@ -1,9 +1,6 @@
 from telethon import events
-
+from thunderbot import CMD_HELP
 import asyncio
-
-
-
 
 
 @thunderbot.on(events.NewMessage(pattern=r"\.(.*)", outgoing=True))
