@@ -49,7 +49,7 @@ requests>=2.18.4
 search-engine-parser>=0.4.2
 selenium
 spamwatch
-speedtest-cli>=2.0.2
+speedtest-cli
 sqlalchemy==1.3.23
 telegraph
 telethon>=1.17
