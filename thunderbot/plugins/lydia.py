@@ -29,7 +29,7 @@ async def repcf(event):
         reply = await event.get_reply_message()
         msg = reply.text
         text_rep = session.think_thought(msg)
-        await eor(event, "**sun bsdk**: {0}".format(text_rep))
+        await eor(event, "[{DEFAULTUSER}](tg://user?id={myid}) **AI**: {0}".format(text_rep))
     except Exception as e:
         await eor(event, str(e))
 
