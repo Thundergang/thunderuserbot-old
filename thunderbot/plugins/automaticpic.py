@@ -22,7 +22,7 @@ COLOUR = str(AUTOPIC_FONT_COLOUR) if AUTOPIC_FONT_COLOUR else (255, 255, 255)
 async def autopic(event):
     await event.edit("**Autopic has been enabled!!!**")
     a = await event.get_reply_message()
-    downloaded_file_name = "userbot/original_pic.png"
+    downloaded_file_name = "thunderbot/original_pic.png"
     await thunderbot.download_media(a, downloaded_file_name)
     photo = "thunderbot/photo_pfp.png"
     while True:
