@@ -13,7 +13,7 @@ async def _(event):
     if event.fwd_from:
         return
     animation_interval = 0.1
-    animation_ttl = range(0,36)
+    animation_ttl = range(0,2)
     await event.edit("⚡️Thunderuserbot⚡️")
     animation_chars = [
             "⚡️@thunderuserbot⚡️",
