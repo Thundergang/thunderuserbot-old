@@ -1,3 +1,4 @@
+aria2p
 Pillow>=5.3.0
 PyGithub
 aiofiles
