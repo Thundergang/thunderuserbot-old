@@ -23,7 +23,7 @@ async def waifupp():
     pack = COLLECTION_STRING[rnd]
     plist = requests.get("http://getwallpapers.com/collection/" + pack).text
     f = re.compile(r"/\w+/full.+.jpg")
-    f = f.findall(pc)
+    f = f.findall(plist)
     fy = "http://getwallpapers.com" + random.choice(f)
     print(fy)
 
@@ -38,7 +38,7 @@ async def waifupp():
     open('thunderuserbotautopic.jpg', 'wb').write(r.content)
 
 
-@thunderbot.on(admin_cmd(pattern="waifupic"))
+@thunderbot.on(admin_cmd(pattern="waifupfp"))
 async def main(event):
 
     await event.edit(
@@ -50,7 +50,7 @@ async def main(event):
         await waifupp()
         file = await event.client.upload_file("thunderuserbotautopic.jpg")
         await event.client(functions.photos.UploadProfilePhotoRequest(file))
-        os.system("rm -rf thunderuserbotautopic.jpg")
+        os.system("rm thunderuserbotautopic.jpg")
         await asyncio.sleep(600)
 
 
