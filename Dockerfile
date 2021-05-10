@@ -2,10 +2,13 @@ FROM kalilinux/kali-rolling
 
 ARG DEBIAN_FRONTEND=noninteractive
 
+RUN adduser thundergang
+
+RUN usermod -aG sudo thundergang
+
 RUN apt-get update && apt upgrade -y && apt-get install sudo -y
 
 RUN apt-get install -y\
-    aria2 \
     coreutils \
     bash \
     nodejs \
@@ -51,6 +54,8 @@ RUN apt-get install -y\
     policykit-1 \
     p7zip-full \
     tree
+
+RUN sudo apt-get install aria2 -y
 
 RUN apt-get autoremove --purge
 
