@@ -57,6 +57,8 @@ RUN apt-get install -y\
 
 RUN sudo apt-get install aria2 -y
 
+RUN sudo apt-get install neofetch
+
 RUN apt-get autoremove --purge
 
 RUN pip3 install --upgrade pip setuptools 
