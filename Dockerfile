@@ -5,6 +5,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 RUN apt-get update && apt upgrade -y && apt-get install sudo -y
 
 RUN apt-get install -y\
+    aria2 \
     coreutils \
     bash \
     nodejs \
