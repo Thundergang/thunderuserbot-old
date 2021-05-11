@@ -61,3 +61,4 @@ youtube-search-python>=1.3.2
 youtube-search>=1.1.1
 pygments
 urllib3
+catsart
