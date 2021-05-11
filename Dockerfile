@@ -1,10 +1,11 @@
-FROM kalilinux/kali-rolling
+FROM ubuntu:latest
 
-ARG DEBIAN_FRONTEND=noninteractive
 
 RUN adduser thundergang
 
 RUN usermod -aG sudo thundergang
+
+USER thundergang
 
 RUN apt-get update && apt upgrade -y && apt-get install sudo -y
 
