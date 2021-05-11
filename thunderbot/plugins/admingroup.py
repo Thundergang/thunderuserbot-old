@@ -516,10 +516,6 @@ CMD_HELP.update(
 \nUse - : Bans the person off your chat.\
 \n\n.unban <username/reply>\
 \nUse - : Removes the ban from the person in the chat.\
-\n\n.mute <username/reply> <reason (optional)>\
-\nUse - : Mutes the person in the chat, works on admins too.\
-\n\n.unmute <username/reply>\
-\nUse - : Removes the person from the muted list.\
 \n\n.admins\
 \nUse - : Retrieves a list of admins in the chat.\
 \n\n.users or .users <name of member>\
