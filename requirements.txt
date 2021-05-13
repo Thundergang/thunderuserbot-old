@@ -62,3 +62,4 @@ youtube-search>=1.1.1
 pygments
 urllib3
 catsart
+tswift
