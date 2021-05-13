@@ -1,7 +1,6 @@
 # Thunderuserbot Version 2.0 By Thundergang™
-<p align="center">
-<img src="https://user-images.githubusercontent.com/65858180/104087484-10730200-5286-11eb-92e1-6da5313adf75.gif" >
 
+# <p align="left"><a href="https://github.com/Thundergang/thunderuserbot"><img src="https://github-readme-stats.vercel.app/api/pin?username=Thundergang&show_icons=true&theme=dark&hide_border=true&repo=thunderuserbot"></a></p><p align="centre"><a href="https://t.me/thunderuserbot">
 
 [![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
 
@@ -25,6 +24,9 @@ Best UserBot To Manage Your Telegram Account
 ## IF YOU WILL FORK THEN YOU WOULDN'T GET NEW UPDATES !!
 ## Tutorials
 - Tutorial for how to signup free on heroku for thunderuserbot can be found [here](https://youtu.be/x1U0a0_sBe8)
+
+
+
 
 ## Deploy Thunderuserbot To Heroku
 
