@@ -2,4 +2,4 @@ build:
   docker:
     web: Dockerfile
 run:
-  web: python -m userbot
+  web: python -m thunderbot
