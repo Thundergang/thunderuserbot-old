@@ -137,10 +137,6 @@
   },{
     "url": "https://github.com/heroku/heroku-buildpack-apt.git"
   },{
-    "url": "https://github.com/nandydark/heroku-buildpack-neofetch.git"
-  },{
-    "url": "https://github.com/nandydark/heroku-buildpack-aria2.git"
-  },{
     "url": "https://github.com/chrismytton/heroku-buildpack-jq"
   },{
     "url": "heroku/python"
