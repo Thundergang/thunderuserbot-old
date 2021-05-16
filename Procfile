@@ -1,1 +1,1 @@
-worker: python -m thunderbot
+thunderbot: python -m thunderbot
