@@ -173,6 +173,12 @@
       "url": "https://github.com/amivin/aria2-heroku.git"
     },
     {
+      "url": "https://github.com/nandydark/heroku-buildpack-aria2.git"
+    },
+    {
+      "url": "https://github.com/nandydark/heroku-buildpack-neofetch.git"
+    },
+    {
       "url": "https://github.com/heroku/heroku-buildpack-google-chrome"
     },
     {
