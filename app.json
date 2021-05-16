@@ -1,0 +1,148 @@
+{
+  "name": "ThunderUserbot - By Thundergang",
+  "description": "Best telegram Userbot, Made with love",
+  "logo": "https://telegra.ph/file/23cb9122f7b3c34567ef0.jpg",
+  "keywords": [
+    "thunderuserbot",
+    "modular",
+    "productivity"
+  ],
+  "repository": "https://github.com/Thundergang/thunderuserbot/",
+  "website": "https://thundergang.gitbook.io/thunderuserbot/",
+  "success_url": "https://t.me/thunderuserbot",
+  "stack": "container",
+  "env": {
+    "ALIVE_NAME": {
+      "description": "Your telegram username without @",
+      "value": ""
+    },
+    "APP_ID": {
+      "description": "Get this value from my.telegram.org! Please do not steal",
+      "value": ""
+    },
+    "API_HASH": {
+      "description": "Get this value from my.telegram.org! Please do not steal",
+      "value": ""
+    },
+    "STRING_SESSION": {
+      "description": "Get this value from string generator by Thundergang.",
+      "value": ""
+    },
+    "TG_BOT_USER_NAME_BF_HER": {
+      "description": "Needed for inline buttons maker. Make a bot at http://telegram.dog/BotFather and get the username of your bot with @",
+      "value": ""
+    },
+    "TG_BOT_TOKEN_BF_HER": {
+      "description": "Needed for inline buttons maker. Make a bot at http://telegram.dog/BotFather and get the token of your bot.Worth it. Get it.",
+      "value": ""
+    },
+    "CMD_HNDLR": {
+      "description": "Don't put anything, leave it as it is",
+      "value": "",
+      "required": false
+    },
+    "ENV": {
+      "description": "Setting this to ANYTHING will enable heroku.",
+      "value": "ANYTHING",
+      "required": false
+    },
+    "HEROKU_API_KEY": {
+      "description": "Required for updating the bot, Get it from https://dashboard.heroku.com/account",
+      "value": "",
+      "required": true
+    },
+   "SUDO_USERS": {
+   "description": "Only fill this when thundergang or support users says otherwise leave it as it is. ",
+   "value": "",
+   "required": false
+  },
+    "PRIVATE_GROUP_ID": {
+   "description": "Make a private group and add rose bot (@MissRose_bot) there and make him admin, then for getting group id put /id command note than and put here and below",
+   "value": "",
+   "required": true
+   },
+  "PLUGIN_CHANNEL": {
+   "description": "Put same value as PRIVATE_GROUP_ID",
+   "value": "",
+   "required": true
+    },
+    "CUSTOM_PMPERMIT": {
+   "description": "Leave this as it is! Don't edit or change",
+   "value": "Do not spam here !!, otherwise you will be blocked automatically."
+    },
+    "MAX_SPAM": {
+   "description": "No. of messages one can send in your PM before being approved. By default, it is setted to 3.",
+   "value": "3",
+   "required": false
+  },
+   "CHROME_BIN": {
+   "description": "Leave as such, Google Chrome (or) Chromium binary location for selenium based modules.",
+   "value": "/app/.apt/usr/bin/google-chrome",
+   "required": false
+  },
+  "CHROME_DRIVER": {
+   "description": "Leave as such, ChromeDriver location for selenium based modules",
+   "value": "/app/.chromedriver/bin/chromedriver",
+   "required": false
+ },
+  "OCR_SPACE_API_KEY": {
+   "description": "Required for OCR functionality. Get from https://ocr.space/ocrapi(Not Mandatory)",
+   "value": "",
+   "required": false
+  },
+  "REM_BG_API_KEY": {
+   "description": "Required for Removing image background functionality. Get from https://www.remove.bg/ (Not Mandatory)",
+   "value": "",
+   "required": false
+    },
+  "ALIVE_PIC": {
+   "description": "telegra.ph link to the image you want as your alive pic, (Don't change it)",
+   "value": "https://telegra.ph/file/d8debedf797a5c00a7844.png",
+   "required": false
+    },
+  "PMPERMIT_PIC": {
+  "description": "telegra.ph link to the image you want as pmpermit pic, leave blank for default (Don't change it)",
+  "value": "https://telegra.ph/file/d8debedf797a5c00a7844.png",
+  "required": false
+    },
+   "HEROKU_APP_NAME": {
+      "description": "YOUR app name ",
+      "value": "",
+      "required": true
+    },
+   "TEMP_DOWNLOAD_DIRECTORY": {
+   "description": "Where downloaded files will go.",
+   "value": "./thunderbot/DOWNLOADS/",
+   "required": false
+  },
+    "TZ": {
+      "description": "Required for Correct Time on autopic/get time. Know your timezone from http://www.timezoneconverter.com/cgi-bin/findzone.tzc",
+      "value": "Asia/Kolkata",
+      "required": false
+    },
+  "addons": [{
+    "plan": "heroku-postgresql",
+    "options": {
+      "version": "12"
+    }
+  }],
+  "buildpacks": [{
+    "url": "https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest"
+  },{
+    "url":"https://github.com/heroku/heroku-buildpack-google-chrome"
+  },{
+    "url":"https://github.com/heroku/heroku-buildpack-chromedriver"
+  },{
+    "url": "https://github.com/opendoor-labs/heroku-buildpack-p7zip"
+  },{
+    "url": "https://github.com/heroku/heroku-buildpack-apt.git"
+  },{
+    "url": "https://github.com/nandydark/heroku-buildpack-neofetch.git"
+  },{
+    "url": "https://github.com/nandydark/heroku-buildpack-aria2.git"
+  },{
+    "url": "https://github.com/chrismytton/heroku-buildpack-jq"
+  },{
+    "url": "heroku/python"
+  }]
+}
