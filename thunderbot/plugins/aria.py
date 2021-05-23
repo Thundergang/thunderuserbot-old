@@ -8,7 +8,7 @@ import aria2p
 from requests import get
 
 from thunderbot import CMD_HELP, LOGS, TEMP_DOWNLOAD_DIRECTORY
-from thunderbot.utils import admin_cmd, humanbytes
+from thunderbot.utils import admin_cmd, sudo_cmd, humanbytes
 
 
 #I NEED THIS
