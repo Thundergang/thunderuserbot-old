@@ -1,7 +1,7 @@
 import os
 import sys
 from thunderbot import CMD_HELP, CMD_HNDLR
-from thunderbot.utils import admin_cmd
+from thunderbot.utils import admin_cmd, sudo_cmd
 
 
 @thunderbot.on(admin_cmd(pattern="restart"))
