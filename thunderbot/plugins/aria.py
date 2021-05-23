@@ -80,6 +80,7 @@ download_path = os.getcwd() + TEMP_DOWNLOAD_DIRECTORY.strip(".")
 
 #@register(outgoing=True, pattern=r"^\.amag(?: |$)(.*)")
 @thunderbot.on(admin_cmd(pattern="amag (.*)"))
+@thunderbot.on(sudo_cmd(pattern="amag (.*)", allow_sudo=True))
 async def magnet_download(event):
     magnet_uri = event.pattern_match.group(1)
     # Add Magnet URI Into Queue
@@ -97,6 +98,7 @@ async def magnet_download(event):
 
 #@register(outgoing=True, pattern=r"^\.ator(?: |$)(.*)")
 @thunderbot.on(admin_cmd(pattern="ator (.*)"))
+@thunderbot.on(sudo_cmd(pattern="ator (.*)", allow_sudo=True))
 async def torrent_download(event):
     torrent_file_path = event.pattern_match.group(1)
     # Add Torrent Into Queue
@@ -113,6 +115,7 @@ async def torrent_download(event):
 
 #@register(outgoing=True, pattern=r"^\.aurl(?: |$)(.*)")
 @thunderbot.on(admin_cmd(pattern="aurl (.*)"))
+@thunderbot.on(sudo_cmd(pattern="aurl (.*)", allow_sudo=True))
 async def aurl_download(event):
     uri = [event.pattern_match.group(1)]
     try:  # Add URL Into Queue
@@ -130,6 +133,7 @@ async def aurl_download(event):
 
 #@register(outgoing=True, pattern=r"^\.aclear(?: |$)(.*)")
 @thunderbot.on(admin_cmd(pattern="aclear (.*)"))
+@thunderbot.on(sudo_cmd(pattern="aclear (.*)", allow_sudo=True))
 async def remove_all(event):
     try:
         removed = aria2.remove_all(force=True)
@@ -146,6 +150,7 @@ async def remove_all(event):
 
 #@register(outgoing=True, pattern=r"^\.apause(?: |$)(.*)")
 @thunderbot.on(admin_cmd(pattern="apause (.*)"))
+@thunderbot.on(sudo_cmd(pattern="apause (.*)", allow_sudo=True))
 async def pause_all(event):
     # Pause ALL Currently Running Downloads.
     await event.edit("`Pausing downloads...`")
@@ -168,6 +173,7 @@ async def resume_all(event):
 
 #@register(outgoing=True, pattern=r"^\.ashow(?: |$)(.*)")
 @thunderbot.on(admin_cmd(pattern="ashow (.*)"))
+@thunderbot.on(sudo_cmd(pattern="ashow (.*)", allow_sudo=True))
 async def show_all(event):
     downloads = aria2.get_downloads()
     msg = ""
