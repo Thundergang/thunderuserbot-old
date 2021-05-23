@@ -16,6 +16,6 @@ async def _(event):
 
 CMD_HELP.update(
     {
-        "clock": "➟ `.clock \nUse - Clock Clock Clock"
+        "clock": "➟ `.clock` \nUse - Clock Clock Clock"
     }
 )
