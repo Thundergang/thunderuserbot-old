@@ -77,8 +77,6 @@ def time_formatter(milliseconds: int) -> str:
 @thunderbot.on(admin_cmd(pattern=r"dl(?: |)(.*)", outgoing=True))
 @thunderbot.on(sudo_cmd(pattern=r"dl(?: |)(.*)", allow_sudo=True))
 async def download(target_file):
-    async def download(target_file):
-    """ For .download command, download files to the userbot's server. """
     await await eor(
                 target_file, "**Processing...**")
     input_str = target_file.pattern_match.group(1)
