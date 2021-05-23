@@ -37,9 +37,8 @@ trackers_list = get(
     "https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_best.txt"
 ).text.replace("\n\n", ",")
 trackers = f"[{trackers_list}]"
-
-#cmd = f"aria2c \
-cmd = f"aria2p \
+#cmd = f"aria2p \
+cmd = f"aria2c \
 --enable-rpc \
 --rpc-listen-all=false \
 --rpc-listen-port 8210 \
