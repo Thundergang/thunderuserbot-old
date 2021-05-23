@@ -77,7 +77,7 @@ def time_formatter(milliseconds: int) -> str:
 @thunderbot.on(admin_cmd(pattern=r"dl(?: |)(.*)", outgoing=True))
 @thunderbot.on(sudo_cmd(pattern=r"dl(?: |)(.*)", allow_sudo=True))
 async def download(target_file):
-    await await eor(
+    await eor(
                 target_file, "**Processing...**")
     input_str = target_file.pattern_match.group(1)
     replied = await target_file.get_reply_message()
@@ -99,7 +99,7 @@ async def download(target_file):
         try:
             url = get(url).url
         except BaseException:
-            return await await eor(
+            return await eor(
                 target_file, "**This is not a valid link.**")
         downloaded_file_name = TEMP_DOWNLOAD_DIRECTORY + "" + file_name
         downloader = SmartDL(url, downloaded_file_name, progress_bar=False)
@@ -131,22 +131,22 @@ async def download(target_file):
                 )
 
                 if round(diff % 15.00) == 0 and current_message != display_message:
-                    await await eor(
+                    await eor(
                 target_file, current_message)
                     display_message = current_message
             except Exception as e:
                 LOGS.info(str(e))
         if downloader.isSuccessful():
-            await await eor(
+            await eor(
                 target_file, 
                 f"**Downloaded to** `{downloaded_file_name}` **successfully!**"
             )
         else:
-            await await eor(
+            await eor(
                 target_file, f"**Incorrect URL**\n{url}")
     elif replied:
         if not replied.media:
-            return await await eor(
+            return await eor(
                 target_file, "**Reply to file or media.**")
         try:
             media = replied.media
@@ -189,16 +189,16 @@ async def download(target_file):
                 )
             dl_time = (datetime.now() - start_time).seconds
         except Exception as e:  # pylint:disable=C0103,W0703
-            await await eor(
+            await eor(
                 target_file, str(e))
         else:
             try:
-                await await eor(
+                await eor(
                 target_file,
                     f"**Downloaded to** `{result.name}` **in {dl_time} seconds.**"
                 )
             except AttributeError:
-                await await eor(
+                await eor(
                 target_file,
                     f"**Downloaded to** `{result}` **in {dl_time} seconds.**"
                 )
