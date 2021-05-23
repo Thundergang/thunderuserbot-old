@@ -10,7 +10,7 @@ async def _(event):
     if event.fwd_from:
         return
     await event.edit(
-        f"**Updating Your Thunderuserbot**... Please Wait Until It Starts Again\nFor More, Get Help From [Here](https://t.me/thunderuserbot) "
+        f" ⚡️⚡️**Updating Your Thunderuserbot**⚡️⚡️ ... Please Wait Until It Starts Again✅\nFor More, Get Help From [Here](https://t.me/thunderuserbot) "
     )
     await thunderbot.disconnect()
     os.execl(sys.executable, sys.executable, *sys.argv)
