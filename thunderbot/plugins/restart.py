@@ -5,6 +5,7 @@ from thunderbot.utils import admin_cmd
 
 
 @thunderbot.on(admin_cmd(pattern="restart"))
+@thunderbot.on(sudo_cmd(pattern="restart", allow_sudo=True))
 async def _(event):
     if event.fwd_from:
         return
