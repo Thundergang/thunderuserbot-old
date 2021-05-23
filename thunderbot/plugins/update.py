@@ -1,29 +1,23 @@
-"""
-Available Commands:
-.update
-"""
-
-import asyncio
-from telethon import events
-from thunderbot import CMD_HELP
+  
+import os
+import sys
+from thunderbot import CMD_HELP, CMD_HNDLR
 from thunderbot.utils import admin_cmd
 
-@thunderbot.on(admin_cmd("update"))
+
+@thunderbot.on(admin_cmd(pattern="update"))
 async def _(event):
     if event.fwd_from:
         return
-    animation_interval = 0.1
-    animation_ttl = range(0,2)
-    await event.edit("⚡️Thunderuserbot⚡️")
-    animation_chars = [
-            "⚡️@thunderuserbot⚡️",
-            "⚡️**Restart Your Dynos To Automatically Update Your Thunderuserbots**⚡️\nFor More, Get Help From [Here](https://t.me/thunderuserbot)"
-         ]
-            
+    await event.edit(
+        f"**Updating Your Thunderuserbot**... Please Wait Until It Starts Again\nFor More, Get Help From [Here](https://t.me/thunderuserbot) "
+    )
+    await thunderbot.disconnect()
+    os.execl(sys.executable, sys.executable, *sys.argv)
+    quit()
 
-    for i in animation_ttl:
-        	
-        await asyncio.sleep(animation_interval)
-        await event.edit(animation_chars[i % 18])
-
-CMD_HELP.update({"update": ".update\nUse - Update Your Thunderuserbot."})
+CMD_HELP.update(
+    {
+        "update": "`.update`\nUse - Updates Your Thunderuserbot."
+    }
+)
