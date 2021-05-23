@@ -8,20 +8,8 @@ import aria2p
 from requests import get
 
 from thunderbot import CMD_HELP, LOGS, TEMP_DOWNLOAD_DIRECTORY
-from thunderbot.utils import admin_cmd
+from thunderbot.utils import admin_cmd, humanbytes
 
-##HUMANBYTES
-def humanbytes(size: int) -> str:
-    if size is None or isinstance(size, str):
-        return ""
-
-    power = 2**10
-    raised_to_pow = 0
-    dict_power_n = {0: "", 1: "Ki", 2: "Mi", 3: "Gi", 4: "Ti"}
-    while size > power:
-        size /= power
-        raised_to_pow += 1
-    return str(round(size, 2)) + " " + dict_power_n[raised_to_pow] + "B"
 
 #I NEED THIS
 #from userbot.events import register
