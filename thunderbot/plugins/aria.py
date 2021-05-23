@@ -60,10 +60,10 @@ if not os.path.isdir(TEMP_DOWNLOAD_DIRECTORY):
     os.makedirs(TEMP_DOWNLOAD_DIRECTORY)
 download_path = os.getcwd() + TEMP_DOWNLOAD_DIRECTORY.strip(".")
 
-#aria2 = aria2p.API(aria2p.Client(host="http://localhost", port=8210,
-                                 #secret=""))
+aria2 = aria2p.API(aria2p.Client(host="http://localhost", port=8210,
+                                 secret=""))
 
-#aria2.set_global_options({"dir": download_path})
+aria2.set_global_options({"dir": download_path})
 
 
 #@register(outgoing=True, pattern=r"^\.amag(?: |$)(.*)")
