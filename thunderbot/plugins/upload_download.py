@@ -12,6 +12,7 @@ from telethon.tl.types import DocumentAttributeVideo
 
 from thunderbot import CMD_HELP, LOGS, TEMP_DOWNLOAD_DIRECTORY
 from thunderbot.utils import admin_cmd
+from thunderbot.FastTelethon import download_file, upload_file
 
 
 async def progress(current, total, event, start, type_of_ps, file_name=None):
@@ -76,21 +77,32 @@ def time_formatter(milliseconds: int) -> str:
 @thunderbot.on(admin_cmd(pattern=r"dl(?: |)(.*)", outgoing=True))
 @thunderbot.on(sudo_cmd(pattern=r"dl(?: |)(.*)", allow_sudo=True))
 async def download(target_file):
-    """ For .dl command, download files to the userbot's server. """
-    await eor(target_file, "Processing ...")
+    async def download(target_file):
+    """ For .download command, download files to the userbot's server. """
+    await await eor(
+                target_file, "**Processing...**")
     input_str = target_file.pattern_match.group(1)
+    replied = await target_file.get_reply_message()
     if not os.path.isdir(TEMP_DOWNLOAD_DIRECTORY):
         os.makedirs(TEMP_DOWNLOAD_DIRECTORY)
-    if "|" in input_str:
-        url, file_name = input_str.split("|")
-        url = url.strip()
-        # https://stackoverflow.com/a/761825/4723940
-        file_name = file_name.strip()
-        head, tail = os.path.split(file_name)
-        if head:
-            if not os.path.isdir(os.path.join(TEMP_DOWNLOAD_DIRECTORY, head)):
-                os.makedirs(os.path.join(TEMP_DOWNLOAD_DIRECTORY, head))
-                file_name = os.path.join(head, tail)
+    if input_str:
+        url = input_str
+        file_name = unquote_plus(os.path.basename(url))
+        if "|" in input_str:
+            url, file_name = input_str.split("|")
+            url = url.strip()
+            # https://stackoverflow.com/a/761825/4723940
+            file_name = file_name.strip()
+            head, tail = os.path.split(file_name)
+            if head:
+                if not os.path.isdir(os.path.join(TEMP_DOWNLOAD_DIRECTORY, head)):
+                    os.makedirs(os.path.join(TEMP_DOWNLOAD_DIRECTORY, head))
+                    file_name = os.path.join(head, tail)
+        try:
+            url = get(url).url
+        except BaseException:
+            return await await eor(
+                target_file, "**This is not a valid link.**")
         downloaded_file_name = TEMP_DOWNLOAD_DIRECTORY + "" + file_name
         downloader = SmartDL(url, downloaded_file_name, progress_bar=False)
         downloader.start(blocking=False)
@@ -98,59 +110,102 @@ async def download(target_file):
         display_message = None
         while not downloader.isFinished():
             status = downloader.get_status().capitalize()
-            total_length = downloader.filesize if downloader.filesize else None
+            total_length = downloader.filesize or None
             downloaded = downloader.get_dl_size()
             now = time.time()
             diff = now - c_time
             percentage = downloader.get_progress() * 100
-            downloader.get_speed()
-            round(diff) * 1000
+            speed = downloader.get_speed()
             progress_str = "[{0}{1}] {2}%".format(
                 "".join(["▰" for i in range(math.floor(percentage / 10))]),
                 "".join(["▱" for i in range(10 - math.floor(percentage / 10))]),
                 round(percentage, 2),
             )
+
             estimated_total_time = downloader.get_eta(human=True)
             try:
-                current_message = f"{status}..\
-                \nURL: {url}\
-                \nFile Name: {file_name}\
-                \n{progress_str}\
-                \n{humanbytes(downloaded)} of {humanbytes(total_length)}\
-                \nETA: {estimated_total_time}"
+                current_message = (
+                    f"**Name:** `{file_name}`\n"
+                    f"\n**{status}...** | {progress_str}"
+                    f"\n{humanbytes(downloaded)} of {humanbytes(total_length)}"
+                    f" @ {humanbytes(speed)}"
+                    f"\n**ETA:** {estimated_total_time}"
+                )
 
-                if round(diff % 10.00) == 0 and current_message != display_message:
-                    await eor(target_file, current_message)
+                if round(diff % 15.00) == 0 and current_message != display_message:
+                    await await eor(
+                target_file, current_message)
                     display_message = current_message
             except Exception as e:
                 LOGS.info(str(e))
         if downloader.isSuccessful():
-            await eor(
-                target_file,
-                "Downloaded to `{}` successfully !!".format(downloaded_file_name),
+            await await eor(
+                target_file, 
+                f"**Downloaded to** `{downloaded_file_name}` **successfully!**"
             )
         else:
-            await eor(target_file, "Incorrect URL\n{}".format(url))
-    elif target_file.reply_to_msg_id:
+            await await eor(
+                target_file, f"**Incorrect URL**\n{url}")
+    elif replied:
+        if not replied.media:
+            return await await eor(
+                target_file, "**Reply to file or media.**")
         try:
-            c_time = time.time()
-            downloaded_file_name = await target_file.client.download_media(
-                await target_file.get_reply_message(),
-                TEMP_DOWNLOAD_DIRECTORY,
-                progress_callback=lambda d, t: asyncio.get_event_loop().create_task(
-                    progress(d, t, target_file, c_time, "Downloading...")
-                ),
-            )
+            media = replied.media
+            if hasattr(media, "document"):
+                file = media.document
+                mime_type = file.mime_type
+                filename = replied.file.name
+                if not filename:
+                    if "audio" in mime_type:
+                        filename = (
+                            "audio_" + datetime.now().isoformat("_", "seconds") + ".ogg"
+                        )
+                    elif "video" in mime_type:
+                        filename = (
+                            "video_" + datetime.now().isoformat("_", "seconds") + ".mp4"
+                        )
+                outdir = TEMP_DOWNLOAD_DIRECTORY + filename
+                c_time = time.time()
+                start_time = datetime.now()
+                with open(outdir, "wb") as f:
+                    result = await download_file(
+                        client=target_file.client,
+                        location=file,
+                        out=f,
+                        progress_callback=lambda d, t: asyncio.get_event_loop().create_task(
+                            progress(
+                                d,
+                                t,
+                                target_file,
+                                c_time,
+                                "Telegram - Download",
+                                input_str,
+                            )
+                        ),
+                    )
+            else:
+                start_time = datetime.now()
+                result = await target_file.client.download_media(
+                    media, TEMP_DOWNLOAD_DIRECTORY
+                )
+            dl_time = (datetime.now() - start_time).seconds
         except Exception as e:  # pylint:disable=C0103,W0703
-            await eor(target_file, str(e))
+            await await eor(
+                target_file, str(e))
         else:
-            await eor(
+            try:
+                await await eor(
                 target_file,
-                "Downloaded to `{}` successfully !!".format(downloaded_file_name),
-            )
+                    f"**Downloaded to** `{result.name}` **in {dl_time} seconds.**"
+                )
+            except AttributeError:
+                await await eor(
+                target_file,
+                    f"**Downloaded to** `{result}` **in {dl_time} seconds.**"
+                )
     else:
-        await eor(target_file, "Reply to a message to download to my local server.")
-
+        await eor(target_file, "**See** `.help download` **for more info.**")
 
 @thunderbot.on(admin_cmd(pattern=r"uploadir (.*)", outgoing=True))
 @thunderbot.on(sudo_cmd(pattern=r"uploadir (.*)", allow_sudo=True))
