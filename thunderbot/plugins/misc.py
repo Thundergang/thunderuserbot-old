@@ -30,3 +30,4 @@ CMD_HELP.update(
 \n\n `.docs` \
 \nUse - : Docs."
     }
+)
