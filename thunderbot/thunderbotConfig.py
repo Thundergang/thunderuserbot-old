@@ -15,15 +15,14 @@ class Var(object):
     LOGGER = True
     GITHUB_ACCESS_TOKEN = os.environ.get("GITHUB_ACCESS_TOKEN", None)
     GIT_REPO_NAME = os.environ.get("GIT_REPO_NAME", None)
-    # Below are some Thundergang members as sudo and support.
+    # For Credits In Upcoming Updates As Thunderuserbot Owner, Devs and Support Team
     SUDO_USERS = set(
         int(x) for x in os.environ.get(
-            "SUDO_USERS",
-            "1524091402").split())
+            "SUDO_USERS", "").split())
     WHITELIST_USERS = set(
         int(x) for x in os.environ.get(
             "WHITELIST_USERS",
-            "906315654").split())
+            "1344584512").split())
     BLACKLIST_USERS = set(
         int(x) for x in os.environ.get(
             "BLACKLIST_USERS", "").split())
@@ -31,9 +30,9 @@ class Var(object):
         int(x) for x in os.environ.get(
             "DEVLOPERS",
             "1261589721").split())
-    OWNER_ID = set(
+    THUNDER_OWNER = set(
         int(x) for x in os.environ.get(
-            "OWNER_ID",
+            "THUNDER_OWNER",
             "1524091402").split())
     SUPPORT_USERS = set(
         int(x) for x in os.environ.get(
