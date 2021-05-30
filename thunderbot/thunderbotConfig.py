@@ -210,8 +210,6 @@ if ENV:
         TAG_LOG = os.environ.get("TAG_LOG", None)
         # PMSECURITY
         MAX_SPAM = int(os.environ.get("MAX_SPAM", 3))
-        # Lydia API
-        LYDIA_API = os.environ.get("LYDIA_API", None)
         MASSFBAN_GROUP_ID = os.environ.get("MASSFBAN_GROUP_ID", None)
         if MASSFBAN_GROUP_ID:
             MASSFBAN_GROUP_ID = int(MASSFBAN_GROUP_ID)
