@@ -11,7 +11,35 @@ from thunderbot import CMD_HNDLR
 THUND = Var.PRIVATE_GROUP_ID
 BOTNAME = Var.TG_BOT_USER_NAME_BF_HER
 LOAD_MYBOT = Var.LOAD_MYBOT
-
+logo = """
+  _______ _                     _           
+ |__   __| |                   | |          
+    | |  | |__  _   _ _ __   __| | ___ _ __ 
+    | |  | '_ \| | | | '_ \ / _` |/ _ \ '__|
+    | |  | | | | |_| | | | | (_| |  __/ |   
+    |_|  |_| |_|\__,_|_| |_|\__,_|\___|_|   
+       $$$$$$"
+      .$$$$$$"
+     .$$$$$$"
+    4$$$$$$$$$$$$$"
+   z$$$$$$$$$$$$$"
+   """ """"3$$$$$"
+         z$$$$P
+        d$$$$"
+      .$$$$$"
+     z$$$$$"
+    z$$$$P
+   d$$$$$$$$$$"
+  *******$$$"
+       .$$$"
+      .$$"
+     4$P"
+    z$"
+   zP
+  z"
+ /    ThunderGang
+^
+"""
 
 async def add_bot(bot_token):
     await bot.start(bot_token)
@@ -51,9 +79,9 @@ for name in files:
         shortname = path1.stem
         load_module(shortname.replace(".py", ""))
 
-print("thunderuserbot has been deployed! ")
+print("Thunderuserbot has been deployed! ")
 
-print("Setting up TGBot")
+print("Setting up Assisting Bot")
 path = "thunderbot/plugins/lightningbot/*.py"
 files = glob.glob(path)
 for name in files:
@@ -70,10 +98,10 @@ if LOAD_MYBOT == "True":
             path1 = Path(f.name)
             shortname = path1.stem
             load_pmbot(shortname.replace(".py", ""))
-    print("TGBot set up completely!")
+    print("Assisting Bot set up completely!")
 
-print("TGBot set up - Level - Basic")
-print("thunderuserbot has been fully deployed! Please visit @thunderuserbot on telegram")
+print(logo)
+print("Thunderuserbot has been fully deployed! Please visit @thunderuserbot on telegram")
 bot.loop.run_until_complete(startup_log_all_done())
 
 if len(argv) not in (1, 3, 4):
