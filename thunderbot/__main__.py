@@ -12,12 +12,6 @@ THUND = Var.PRIVATE_GROUP_ID
 BOTNAME = Var.TG_BOT_USER_NAME_BF_HER
 LOAD_MYBOT = Var.LOAD_MYBOT
 logo = """
-  _______ _                     _           
- |__   __| |                   | |          
-    | |  | |__  _   _ _ __   __| | ___ _ __ 
-    | |  | '_ \| | | | '_ \ / _` |/ _ \ '__|
-    | |  | | | | |_| | | | | (_| |  __/ |   
-    |_|  |_| |_|\__,_|_| |_|\__,_|\___|_|   
        $$$$$$"
       .$$$$$$"
      .$$$$$$"
@@ -38,7 +32,25 @@ logo = """
    zP
   z"
  /    ThunderGang
-^
+
+
+████████╗██╗  ██╗██╗   ██╗███╗   ██╗██████╗ ███████╗██████╗ 
+╚══██╔══╝██║  ██║██║   ██║████╗  ██║██╔══██╗██╔════╝██╔══██╗
+   ██║   ███████║██║   ██║██╔██╗ ██║██║  ██║█████╗  ██████╔╝
+   ██║   ██╔══██║██║   ██║██║╚██╗██║██║  ██║██╔══╝  ██╔══██╗
+   ██║   ██║  ██║╚██████╔╝██║ ╚████║██████╔╝███████╗██║  ██║
+   ╚═╝   ╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═══╝╚═════╝ ╚══════╝╚═╝  ╚═╝
+                                                            
+
+
+██╗   ██╗███████╗███████╗██████╗ ██████╗  ██████╗ ████████╗
+██║   ██║██╔════╝██╔════╝██╔══██╗██╔══██╗██╔═══██╗╚══██╔══╝
+██║   ██║███████╗█████╗  ██████╔╝██████╔╝██║   ██║   ██║   
+██║   ██║╚════██║██╔══╝  ██╔══██╗██╔══██╗██║   ██║   ██║   
+╚██████╔╝███████║███████╗██║  ██║██████╔╝╚██████╔╝   ██║   
+ ╚═════╝ ╚══════╝╚══════╝╚═╝  ╚═╝╚═════╝  ╚═════╝    ╚═╝   
+                                                           
+
 """
 
 async def add_bot(bot_token):
@@ -101,7 +113,7 @@ if LOAD_MYBOT == "True":
     print("Assisting Bot set up completely!")
 
 print(logo)
-print("Thunderuserbot has been fully deployed! Please visit @thunderuserbot on telegram")
+print("Thunderuserbot has been started without any issue! Please visit @thunderuserbot on telegram for more")
 bot.loop.run_until_complete(startup_log_all_done())
 
 if len(argv) not in (1, 3, 4):
