@@ -1,13 +1,20 @@
+#Ported from FizilionUserBot
 import math
 import os
 from asyncio import sleep
 from subprocess import PIPE, Popen
-from telethon.errors.rpcerrorlist import MessageNotModifiedError
+
 import aria2p
 from requests import get
 
 from thunderbot import CMD_HELP, LOGS, TEMP_DOWNLOAD_DIRECTORY
 from thunderbot.utils import admin_cmd, sudo_cmd, humanbytes
+
+
+#I NEED THIS
+#from userbot.events import register
+#from userbot.utils import humanbytes
+
 
 def subprocess_run(cmd):
     subproc = Popen(cmd,
@@ -30,6 +37,7 @@ trackers_list = get(
     "https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_best.txt"
 ).text.replace("\n\n", ",")
 trackers = f"[{trackers_list}]"
+#cmd = f"aria2p \
 cmd = f"aria2c \
 --enable-rpc \
 --rpc-listen-all=false \
@@ -54,6 +62,10 @@ download_path = os.getcwd() + TEMP_DOWNLOAD_DIRECTORY.strip(".")
 aria2 = aria2p.API(aria2p.Client(host="http://localhost", port=8210,
                                  secret=""))
 
+#aria2.set_global_options({"dir": download_path})
+
+
+#@register(outgoing=True, pattern=r"^\.amag(?: |$)(.*)")
 @thunderbot.on(admin_cmd(pattern="amag (.*)"))
 @thunderbot.on(sudo_cmd(pattern="amag (.*)", allow_sudo=True))
 async def magnet_download(event):
@@ -70,6 +82,8 @@ async def magnet_download(event):
     new_gid = await check_metadata(gid)
     await check_progress_for_dl(gid=new_gid, event=event, previous=None)
 
+
+#@register(outgoing=True, pattern=r"^\.ator(?: |$)(.*)")
 @thunderbot.on(admin_cmd(pattern="ator (.*)"))
 @thunderbot.on(sudo_cmd(pattern="ator (.*)", allow_sudo=True))
 async def torrent_download(event):
@@ -86,6 +100,7 @@ async def torrent_download(event):
     await check_progress_for_dl(gid=gid, event=event, previous=None)
 
 
+#@register(outgoing=True, pattern=r"^\.aurl(?: |$)(.*)")
 @thunderbot.on(admin_cmd(pattern="aurl (.*)"))
 @thunderbot.on(sudo_cmd(pattern="aurl (.*)", allow_sudo=True))
 async def aurl_download(event):
@@ -103,6 +118,7 @@ async def aurl_download(event):
         await check_progress_for_dl(gid=new_gid, event=event, previous=None)
 
 
+#@register(outgoing=True, pattern=r"^\.aclear(?: |$)(.*)")
 @thunderbot.on(admin_cmd(pattern="aclear (.*)"))
 @thunderbot.on(sudo_cmd(pattern="aclear (.*)", allow_sudo=True))
 async def remove_all(event):
@@ -119,6 +135,7 @@ async def remove_all(event):
     await sleep(2.5)
 
 
+#@register(outgoing=True, pattern=r"^\.apause(?: |$)(.*)")
 @thunderbot.on(admin_cmd(pattern="apause (.*)"))
 @thunderbot.on(sudo_cmd(pattern="apause (.*)", allow_sudo=True))
 async def pause_all(event):
@@ -129,8 +146,9 @@ async def pause_all(event):
     await event.edit("`Successfully paused on-going downloads.`")
     await sleep(2.5)
 
+
+#@register(outgoing=True, pattern=r"^\.aresume(?: |$)(.*)")
 @thunderbot.on(admin_cmd(pattern="aresume (.*)"))
-@thunderbot.on(sudo_cmd(pattern="aresume (.*)", allow_sudo=True))
 async def resume_all(event):
     await event.edit("`Resuming downloads...`")
     aria2.resume_all()
@@ -140,6 +158,7 @@ async def resume_all(event):
     await event.delete()
 
 
+#@register(outgoing=True, pattern=r"^\.ashow(?: |$)(.*)")
 @thunderbot.on(admin_cmd(pattern="ashow (.*)"))
 @thunderbot.on(sudo_cmd(pattern="ashow (.*)", allow_sudo=True))
 async def show_all(event):
@@ -203,12 +222,8 @@ async def check_progress_for_dl(gid, event, previous):
                     f" @ {file.download_speed_string()}`\n"
                     f"`ETA` -> {file.eta_string()}\n")
                 if msg != previous:
-                    try:
-                      await event.edit(msg)
-                      await sleep(20)
-                      msg = previous
-                    except MessageNotModifiedError:
-                       pass 
+                    await event.edit(msg)
+                    msg = previous
             else:
                 await event.edit(f"`{msg}`")
             await sleep(5)
@@ -231,7 +246,6 @@ async def check_progress_for_dl(gid, event, previous):
                 await event.edit(
                     "Download Auto Canceled :\n`{}`\nYour Torrent/Link is Dead."
                     .format(file.name))
-
 
 
 CMD_HELP.update({
