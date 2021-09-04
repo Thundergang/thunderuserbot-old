@@ -21,16 +21,24 @@ Best UserBot To Manage Your Telegram Account
 
 ## ----------------- Don't Forget To Give A Star ⭐ -----------------
 
-## IF YOU WILL FORK THEN YOU WOULDN'T GET NEW UPDATES !!
 ## Tutorials
 - Tutorial for how to signup free on heroku for thunderuserbot can be found [here](https://youtu.be/x1U0a0_sBe8)
-
+- Tutorial for whole deploying process to heroku can be found [here](https://youtu.be/7530SjgsgW4)
+- Tutorial for setting up gdrive on thunderuserbot can be found [here](https://youtu.be/Bwwyn6WVqwI)
 
 
 
 ## Deploy Thunderuserbot To Heroku
 
-[![Deploy To Heroku](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/Thundergang/thunderbotheroku8)
+<img src="https://telegra.ph/file/f9f72d6a0ed19fac35323.jpg">
+
+If you're getting error as the above image.. Don't get worried, Just fork this repo from [here](https://github.com/Thundergang/thunderuserbot-heroku/fork) and Deploy to heroku. For getting help join our [support group](https://t.me/thunderuserbot).
+
+For creating a heroku deploy link from your forked repo, just replace Thundergang with your github username
+  
+```
+https://heroku.com/deploy?template=https://github.com/Thundergang/thunderbotuserbot-heroku
+```
 
 
 ## Telegram String-Session Generator By Thundergang™
