@@ -1,4 +1,4 @@
-# Thunderuserbot Version 2.0 By Thundergang™
+# Thunderuserbot By Thundergang™
 
 # <p align="left"><a href="https://github.com/Thundergang/thunderuserbot"><img src="https://github-readme-stats.vercel.app/api/pin?username=Thundergang&show_icons=true&theme=dark&hide_border=true&repo=thunderuserbot"></a></p><p align="centre"><a href="https://t.me/thunderuserbot">
 
