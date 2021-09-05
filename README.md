@@ -45,37 +45,6 @@ Go and read it from [here](https://thundergang.gitbook.io/thunderuserbot/)
 [Go here](https://github.com/Thundergang/thunderuserbot/graphs/contributors)
 
 
-## Manually Deploying or Hosting Own
-
-Simply clone the repository and run the main file:
-
-```bash
-git clone https://github.com/Thundergang/thunderuserbot
-cd thunderuserbot
-virtualenv -p /usr/bin/python3 venv
-. ./venv/bin/activate
-pip install -r requirements.txt
-# <Create local_config.py with variables as given below>
-python3 -m thunderbot
-```
-
-An example `local_config.py` file could be:
-
-**Not All of the variables are mandatory**
-
-**The Userbot should work by setting only the first two variables**
-
-```python3
-from heroku_config import Var
-
-class Development(Var):
-  APP_ID = 6
-  # 6 is the length of api id
-  API_HASH = "eb06d4abfb49dc3eeb1aeb98ae0f581e"
-  # Use Your Own Api Hash these are just for example
-```
-
-
 ## Mandatory Vars
 
 - Only two of the environment variables are mandatory.
