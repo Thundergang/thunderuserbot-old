@@ -41,10 +41,6 @@ https://heroku.com/deploy?template=https://github.com/Thundergang/thunderbotuser
 Go and read it from [here](https://thundergang.gitbook.io/thunderuserbot/)
 
 
-## Contributors
-[Go here](https://github.com/Thundergang/thunderuserbot/graphs/contributors)
-
-
 ## Mandatory Vars
 
 - Only two of the environment variables are mandatory.
@@ -58,6 +54,8 @@ Go and read it from [here](https://thundergang.gitbook.io/thunderuserbot/)
  [This program is licensed under GNU Affero General Public License v3.0.](https://github.com/Thundergang/thunderuserbot/blob/main/LICENSE)
 You cannot use this without the permission of It's Owner or Thundergang. If we find anyone breaking the rules and not following the licence then we can take any strict actions against them.
 
+## Contributors
+[Go here](https://github.com/Thundergang/thunderuserbot/graphs/contributors)
 # WALL OF SHAME
 
 Wall of Shame current some winners are [here](https://t.me/thunderuserbot/53)
