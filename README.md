@@ -2,16 +2,12 @@
 
 # <p align="left"><a href="https://github.com/Thundergang/thunderuserbot"><img src="https://github-readme-stats.vercel.app/api/pin?username=Thundergang&show_icons=true&theme=dark&hide_border=true&repo=thunderuserbot"></a></p><p align="centre"><a href="https://t.me/thunderuserbot">
 
-[![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
 
+## Tutorials
+- Tutorial for how to signup free on heroku for thunderuserbot can be found [here](https://youtu.be/x1U0a0_sBe8)
+- Tutorial for whole deploying process to heroku can be found [here](https://youtu.be/7530SjgsgW4)
+- Tutorial for setting up gdrive on thunderuserbot can be found [here](https://youtu.be/Bwwyn6WVqwI)
 
-Best UserBot To Manage Your Telegram Account 
-
-
-## Stable, Fast , Safe, Better And Most Trusted
-
-
-## © By Team #ThunderGᴀɴɢ™
 <img src="https://telegra.ph/file/d8debedf797a5c00a7844.png" alt="THUNDER USERBOT">
 
 ## For any query or want to know how it works join our Channel and Support Group 
@@ -20,13 +16,6 @@ Best UserBot To Manage Your Telegram Account
 <a href="https://t.me/thunderuserbotchat"><img src="https://img.shields.io/badge/Join-Telegram%20Group-blue.svg?logo=telegram"></a>
 
 ## ----------------- Don't Forget To Give A Star ⭐ -----------------
-
-## Tutorials
-- Tutorial for how to signup free on heroku for thunderuserbot can be found [here](https://youtu.be/x1U0a0_sBe8)
-- Tutorial for whole deploying process to heroku can be found [here](https://youtu.be/7530SjgsgW4)
-- Tutorial for setting up gdrive on thunderuserbot can be found [here](https://youtu.be/Bwwyn6WVqwI)
-
-
 
 ## Deploy Thunderuserbot To Heroku
 
