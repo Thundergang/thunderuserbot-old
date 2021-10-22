@@ -26,7 +26,7 @@ If you're getting error as the above image.. Don't get worried, Just fork this r
 For creating a heroku deploy link from your forked repo, just replace Thundergang with your github username
   
 ```
-https://heroku.com/deploy?template=https://github.com/Thundergang/thunderbotuserbot-heroku
+https://heroku.com/deploy?template=https://github.com/Thundergang/thunderuserbot-heroku
 
 
 
