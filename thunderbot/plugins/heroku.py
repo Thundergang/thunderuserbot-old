@@ -189,9 +189,6 @@ async def _(givelogs):
         log.write(app.get_log())
     ok = app.get_log()
     message = ok
-    url = "https://del.dog/documents"
-    r = requests.post(url, data=message.encode("UTF-8")).json()
-    url = f"https://del.dog/{r['key']}"
     await givelogs.client.send_file(
         givelogs.chat_id,
         "logs-thunderbot.txt",
