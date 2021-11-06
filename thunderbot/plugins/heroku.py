@@ -193,7 +193,7 @@ async def _(givelogs):
         givelogs.chat_id,
         "logs-thunderbot.txt",
         reply_to=givelogs.id,
-        caption=f"**Your** ThunderUserbot Logs.\nPasted [here]({url}) too!",
+        caption=f"**Your** ThunderUserbot Logs",
     )
     await eor(givelogs, "Heroku Logs Incoming!!")
     await asyncio.sleep(5)
