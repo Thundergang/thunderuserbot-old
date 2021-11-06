@@ -12,25 +12,19 @@ DEVICES_DATA = 'https://raw.githubusercontent.com/androidtrackers/' \
 
 @thunderbot.on(admin_cmd(pattern="magisk (.*)"))
 async def magisk(request):
-    """ magisk latest releases """
     magisk_dict = {
-        "Stable":
-        "https://raw.githubusercontent.com/topjohnwu/magisk_files/master/stable.json",
-        "Beta":
-        "https://raw.githubusercontent.com/topjohnwu/magisk_files/master/beta.json",
-        "Canary (Release)":
-        "https://raw.githubusercontent.com/topjohnwu/magisk_files/canary/release.json",
-        "Canary (Debug)":
-        "https://raw.githubusercontent.com/topjohnwu/magisk_files/canary/debug.json"
+        "Stable": "https://raw.githubusercontent.com/topjohnwu/magisk-files/master/stable.json",
+        "Beta": "https://raw.githubusercontent.com/topjohnwu/magisk-files/master/beta.json",
+        "Canary": "https://raw.githubusercontent.com/topjohnwu/magisk-files/master/canary.json",
     }
-    releases = 'Latest Magisk Releases:\n'
+    releases = "Latest Magisk Releases:\n"
     for name, release_url in magisk_dict.items():
-        data = get(release_url).json()
-        releases += f'{name}: [ZIP v{data["magisk"]["version"]}]({data["magisk"]["link"]}) | ' \
-                    f'[APK v{data["app"]["version"]}]({data["app"]["link"]}) | ' \
-                    f'[Uninstaller]({data["uninstaller"]["link"]})\n'
+        data = data = get(release_url).json()
+        releases += (
+            f'{name}: [APK v{data["magisk"]["version"]}]({data["magisk"]["link"]}) | '
+            f'[Changelog]({data["magisk"]["note"]})\n'
+        )
     await request.edit(releases)
-
 @thunderbot.on(admin_cmd(pattern="device (.*)"))
 async def device_info(request):
     """ get android device basic info from its codename """
