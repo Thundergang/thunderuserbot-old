@@ -24,7 +24,7 @@ afk_time = None
 last_afk_message = {}
 afk_start = {}
 BOTLOG = True
-CUSTOM_AFK = Var.CUSTOM_AFK if Var.CUSTOM_AFK else "My master is currently unavailable!"
+CUSTOM_AFK = Var.CUSTOM_AFK if Var.CUSTOM_AFK else "hi {mention} 🔥chmod deshan🔥 is ♦️offline♦️ !"
 botname = Var.TG_BOT_USER_NAME_BF_HER
 if botname.startswith("@"):
     MYBOT = botname
