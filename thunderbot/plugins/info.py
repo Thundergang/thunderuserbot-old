@@ -90,6 +90,10 @@ async def fetch_info(replied_user, event):
     """ Get details from the User object. """
     user_id = replied_user.user.id
     first_name = replied_user.user.first_name
+    try:
+        dc_id, location = get_input_location(replied_user.profile_photo)
+    except Exception:
+        dc_id = "Can't Get DC ID Of That User, Maybe That User Doesn't Have Any Pfp"
     last_name = replied_user.user.last_name
     username = replied_user.user.username
     user_bio = replied_user.about
@@ -121,6 +125,7 @@ async def fetch_info(replied_user, event):
     caption += f"⚡️ <b>First Name</b>: <code>{first_name}</code> \n"
     caption += f"⚡️ <b>Last Name</b>: <code>{last_name}</code> \n"
     caption += f"⚡️ <b>Username</b>: <code>{username}</code> \n"
+    caption += f"⚡️ <b>Data Centre ID:</b> {dc_id}\n"
     caption += f"⚡️ <b>Is It A Bot</b>: <code>{is_bot}</code> \n"
     caption += f"⚡️ <b>Restricted</b>: <code>{restricted}</code> \n"
     caption += f"⚡️ <b>Verified By Telegram</b>: <code>{verified}</code> \n"
