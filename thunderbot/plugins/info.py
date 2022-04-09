@@ -90,11 +90,12 @@ async def fetch_info(replied_user, event):
     """ Get details from the User object. """
     user_id = replied_user.user.id
     first_name = replied_user.user.first_name
-    try:
-        dc_id, location = get_input_location(replied_user.profile_photo)
-    except Exception:
-        dc_id = "Can't Get DC ID Of That User, Maybe That User Doesn't Have Any Pfp"
     last_name = replied_user.user.last_name
+    try:
+        dc_id, _ = get_input_location(replied_user.profile_photo)
+    except Exception as e:
+        dc_id = "Can't Get DC ID"
+        str(e)
     username = replied_user.user.username
     user_bio = replied_user.about
     is_bot = replied_user.user.bot
