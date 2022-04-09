@@ -11,6 +11,7 @@ from thunderbot import CMD_HNDLR
 THUND = Var.PRIVATE_GROUP_ID
 BOTNAME = Var.TG_BOT_USER_NAME_BF_HER
 LOAD_MYBOT = Var.LOAD_MYBOT
+themessage = "Thunderuserbot Has Been Started"
 logo = """
        $$$$$$"
       .$$$$$$"
@@ -79,6 +80,7 @@ else:
         print("Initialisation finished, no errors")
         print("Starting Userbot")
         bot.loop.run_until_complete(add_bot(Var.TG_BOT_USER_NAME_BF_HER))
+        await tgbot.send_message(THUND, themessage)
         print("Startup Completed")
     else:
         bot.start()
@@ -91,7 +93,6 @@ for name in files:
         shortname = path1.stem
         load_module(shortname.replace(".py", ""))
 
-print("Thunderuserbot has been deployed! ")
 
 print("Setting up Assisting Bot")
 path = "thunderbot/plugins/lightningbot/*.py"
