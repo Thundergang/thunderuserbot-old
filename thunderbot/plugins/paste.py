@@ -18,7 +18,7 @@ async def paste(thepaste):
     reply_id = thepaste.reply_to_msg_id
 
     if not match and not reply_id:
-        await thepaste.edit("`You haven't gave anything to paste! would i paste you instead?`")
+        await thepaste.edit("**You haven't gave anything to paste! would i paste you instead?**")
         return
 
     if match:
@@ -40,7 +40,7 @@ async def paste(thepaste):
         else:
             message = message.message
 
-    await thepaste.edit("`Pasting text . . .`")
+    await thepaste.edit("**Please Wait... We Are Pasting The Text**")
     dta={"content":message}
     resp = post(DOGBIN_URL + "api/v2/pastes", json=dta)
 
@@ -50,11 +50,11 @@ async def paste(thepaste):
         dogbin_final_url = DOGBIN_URL + key
         print(response)
         reply_text = (
-            "`Pasted successfully to`"
+            "**Pasted Successfully To**"
             f"[here]({dogbin_final_url})"
         )
     else:
-        reply_text = "`Error while pasting`"
+        reply_text = "**Error while pasting**"
 
     await thepaste.edit(reply_text)
 
