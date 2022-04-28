@@ -50,8 +50,8 @@ async def paste(thepaste):
         dogbin_final_url = DOGBIN_URL + key
         print(response)
         reply_text = (
-            "**Pasted Successfully To**"
-            f"[here]({dogbin_final_url})"
+            "**Pasted Successfully To **"
+            f"[Here]({dogbin_final_url})"
         )
     else:
         reply_text = "**Error while pasting**"
