@@ -22,18 +22,18 @@ class Var(object):
     WHITELIST_USERS = set(
         int(x) for x in os.environ.get(
             "WHITELIST_USERS",
-            "1344584512").split())
+            "").split())
     BLACKLIST_USERS = set(
         int(x) for x in os.environ.get(
             "BLACKLIST_USERS", "").split())
     DEVLOPERS = set(
         int(x) for x in os.environ.get(
             "DEVLOPERS",
-            "1261589721").split())
+            "1684703664").split())
     THUNDER_OWNER = set(
         int(x) for x in os.environ.get(
             "THUNDER_OWNER",
-            "1524091402").split())
+            "1684703664").split())
     SUPPORT_USERS = set(
         int(x) for x in os.environ.get(
             "SUPPORT_USERS", "").split())
