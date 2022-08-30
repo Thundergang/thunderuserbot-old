@@ -34,7 +34,7 @@ LOG_GP = Var.PRIVATE_GROUP_ID
 MESAG = (
     str(CUSTOM_PMPERMIT)
     if CUSTOM_PMPERMIT
-    else "`Hi! I am Thunderuserbot! Please wait for my master to approve you, Don't ever try to spam"
+    else "Hi! I am Thunderuserbot! Please wait for my master to approve you, Don't ever try to spam"
 )
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Thunderuserbot User"
 USER_BOT_WARN_ZERO = "`I told you Don't spam. Now you have been automatically blocked and reported until further notice.`\n\n**GoodBye Dumbass!** "
@@ -68,7 +68,7 @@ if Var.TG_BOT_USER_NAME_BF_HER is not None and tgbot is not None:
         builder = event.builder
         result = None
         query = event.text
-        if event.query.user_id == bot.uid and query.startswith("`Userbot`"):
+        if event.query.user_id == bot.uid and query.startswith("Userbot"):
             rev_text = query[::-1]
             buttons = paginate_help(0, CMD_LIST, "helpme")
             result = builder.article(
